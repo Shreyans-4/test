@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skill Swap</title>
+
+  <!-- Link to CSS -->
+  <link rel="stylesheet" href="1stLINK.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="Skill Swap Logo" />
+      <span>Skill <strong>Swap</strong></span>
+    </div>
+
+    <nav class="nav-links">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Community</a></li>
+        <li><a href="#">Docs</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </nav>
+
+    <div class="auth-buttons">
+      <a href="#" class="login">Log In</a>
+      <a href="#" class="signup">Sign Up</a>
+    </div>
+
+    <!-- Mobile Menu Icon -->
+    <div class="menu-icon" id="menu-icon">
+      ☰
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>
+        Dive Into Skill Swap And <br />
+        Connect Effortlessly With <span class="highlight">Peers!</span>
+      </h1>
+      <p>
+        Excited to learn something new while teaching others what you love?
+        Join Skill Swap today and start connecting with
+        <a href="#" class="link">like-minded peers!</a>
+      </p>
+      <a href="#" class="cta-button">Get Started →</a>
+    </div>
+
+    <div class="hero-image">
+      <img src="illustration.svg" alt="People connecting online" />
+    </div>
+  </section>
+
+  <!-- Sub Section -->
+  <section class="subsection">
+    <h2>
+      Join Skill Swap and turn passions into expertise, one connection at a
+      time.
+    </h2>
+    <p>Exchange skills, build friendships</p>
+    <a href="#" class="cta-button small">Get Started</a>
+  </section>
+
+  <script>
+    // Mobile menu toggle
+    const menuIcon = document.getElementById("menu-icon");
+    const nav = document.querySelector(".nav-links ul");
+
+    menuIcon.addEventListener("click", () => {
+      nav.classList.toggle("show");
+    });
+  </script>
+</body>
+</html>
