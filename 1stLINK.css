@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -22,6 +23,15 @@ body {
   justify-content: space-between;
   background-color: #fff;
   border-bottom: 1px solid #eee;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transition: box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
 .logo {
@@ -41,6 +51,7 @@ nav ul {
   list-style: none;
   display: flex;
   gap: 2rem;
+  transition: all 0.3s ease;
 }
 
 nav a {
@@ -69,23 +80,23 @@ nav a:hover {
 .signup {
   background-color: #212b36;
   color: #fff;
-  transition: background-color 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .signup:hover {
   background-color: #000;
+  transform: scale(1.05);
 }
 
 /* Hero Section */
 .hero {
+  margin-top: 5.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 5rem 6%;
   gap: 3rem;
   flex-wrap: wrap;
-
-  /* 🌈 Added gradient background */
   background: linear-gradient(135deg, #e4e8ff 0%, #f2fff5 100%);
   border-bottom: 1px solid #e2e2e2;
 }
@@ -112,11 +123,6 @@ nav a:hover {
   margin-bottom: 1.5rem;
 }
 
-.hero-text .link {
-  color: #7a3cff;
-  text-decoration: none;
-}
-
 .cta-button {
   background-color: #1b1b1b;
   color: #fff;
@@ -124,26 +130,46 @@ nav a:hover {
   border-radius: 50px;
   text-decoration: none;
   font-weight: 600;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .cta-button:hover {
   background-color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
 }
 
-/* ✅ Updated Hero Image Style */
 .hero-image img {
   width: 100%;
   max-width: 450px;
-  height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hero-image img:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Fade animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
+}
+
+.fade-in-delay {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s 0.3s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Subsection */
@@ -168,20 +194,70 @@ nav a:hover {
   padding: 0.6rem 1.4rem;
 }
 
+/* Back to Top Button */
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #7a3cff;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+#backToTop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
 /* Responsive Design */
+.menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
-  .hero {
+  nav ul {
+    display: none;
     flex-direction: column;
-    text-align: center;
-    padding: 3rem 6%;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 1rem 0;
+    border-top: 1px solid #eee;
   }
 
-  nav ul {
-    display: none; /* simple static navbar for small screens */
+  nav ul.show {
+    display: flex;
+    animation: slideDown 0.3s ease;
+  }
+
+  @keyframes slideDown {
+    from {opacity: 0; transform: translateY(-10px);}
+    to {opacity: 1; transform: translateY(0);}
   }
 
   .auth-buttons {
     display: none;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 6%;
   }
 
   .hero-image img {
