@@ -3,29 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Skill Swap – Vibrant & Interactive</title>
-  <!-- Google Fonts: Inter -->
+  <title>Skill Swap – Modern & Animated</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="1stLINK.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Animated Universal Background -->
+  <div class="animated-bg"></div>
+
   <header class="navbar">
     <div class="logo">
       <img src="https://png.pngtree.com/png-clipart/20200701/original/pngtree-remote-team-working-meeting-online-or-work-from-home-png-image_5366337.jpg" alt="Skill Swap Logo" />
-      Skill <span style="color:var(--black); font-weight:800;">Swap</span>
+      <span>Skill <strong>Swap</strong></span>
     </div>
-    <nav>
+    <nav class="nav-links">
       <ul>
         <li><a href="#">Home</a></li>
         <li><a href="#">Features</a></li>
-        <li><a href="#">Feed</a></li>
+        <li><a href="#">Community</a></li>
         <li><a href="#">Docs</a></li>
         <li><a href="#">About</a></li>
       </ul>
     </nav>
     <div class="auth-buttons">
-      <a href="#" id="open-login" class="login">Log In</a>
-      <a href="#" id="open-signup" class="signup">Sign Up</a>
+      <a href="#" class="login" id="open-login">Log In</a>
+      <a href="#" class="signup" id="open-signup">Sign Up</a>
     </div>
     <div class="menu-icon" id="menu-icon">☰</div>
   </header>
@@ -44,7 +46,7 @@
       <button class="cta-button" id="cta-join">Get Started →</button>
     </div>
     <div class="hero-image">
-      <img src="https://png.pngtree.com/png-clipart/20200701/original/pngtree-remote-team-working-meeting-online-or-work-from-home-png-image_5366337.jpg" alt="Collaboration illustration" />
+      <img src="https://png.pngtree.com/png-clipart/20200701/original/pngtree-remote-team-working-meeting-online-or-work-from-home-png-image_5366337.jpg" alt="Remote team collaboration illustration" />
     </div>
   </section>
 
@@ -109,7 +111,7 @@
         <label>Password</label>
         <input type="password" placeholder="••••••••" />
         <button onclick="alert('Logging in...')">Log In</button>
-        <p style="margin-top:1rem;"><small>New here? <a href="#" id="switch-signup" style="color:var(--primary);text-decoration:underline;">Sign up</a></small></p>
+        <p style="margin-top:1rem;"><small>New here? <a href="#" id="switch-signup" style="color:#7a3cff;text-decoration:underline;">Sign up</a></small></p>
       `;
       setTimeout(() => {
         document.getElementById('switch-signup').onclick = function(ev) {
@@ -119,7 +121,7 @@
         document.getElementById('close-modal').onclick = function() {
           modal.classList.remove('active');
         };
-      }, 50);
+      }, 60);
     });
     function showSignup() {
       modal.classList.add('active');
@@ -133,7 +135,7 @@
         <label>Password</label>
         <input type="password" placeholder="Choose a password" />
         <button onclick="alert('Account created!')">Sign Up</button>
-        <p style="margin-top:1rem;"><small>Already a member? <a href="#" id="switch-login" style="color:var(--primary);text-decoration:underline;">Log in</a></small></p>
+        <p style="margin-top:1rem;"><small>Already a member? <a href="#" id="switch-login" style="color:#7a3cff;text-decoration:underline;">Log in</a></small></p>
       `;
       setTimeout(() => {
         document.getElementById('switch-login').onclick = function(ev) {
@@ -143,7 +145,7 @@
         document.getElementById('close-modal').onclick = function() {
           modal.classList.remove('active');
         };
-      }, 50);
+      }, 60);
     }
     document.getElementById('open-signup').onclick = function(e) {
       e.preventDefault();
